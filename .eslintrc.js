@@ -1,9 +1,10 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true
+    es6: true,
+    "jest/globals": true
   },
-  extends: ['airbnb', 'prettier', 'prettier/react'],
+  extends: ['airbnb', 'prettier', 'prettier/react', "kentcdodds/jest"],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
@@ -15,12 +16,21 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['react'],
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        tabWidth: 2,
+        trailingComma: "es5",
+        singleQuote: true,
+        printWidth: 120,
+      }
+    ],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    indent: ['error', 2],
+    indent: ['error', 2, {"SwitchCase": 1}],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always']
-  }
+  },
+  plugins: ['react', 'prettier', 'jest']
 };
