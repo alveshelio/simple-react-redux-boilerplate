@@ -6,7 +6,6 @@ import store from './store';
 const App = () => (
   <Provider store={store}>
     <h1>App</h1>
-
   </Provider>
 );
 

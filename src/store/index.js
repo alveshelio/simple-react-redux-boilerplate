@@ -5,7 +5,4 @@ import logger from 'redux-logger';
 
 import rootReducer from './reducers';
 
-export default createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(logger))
-);
+export default createStore(rootReducer, composeWithDevTools(applyMiddleware(logger)));

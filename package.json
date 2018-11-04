@@ -1,14 +1,19 @@
 {
-  "name": "advanced-react-redux",
+  "name": "react-redux-boilerplate",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "precommit": "lint-staged"
+    "webpack": "webpack",
+    "webpack-dev-server": "webpack-dev-server",
+    "debug": "node --inspect --inspect-brk ./node_modules/webpack/bin/webpack.js",
+    "dev": "npm run webpack-dev-server -- --env.mode development --env.presets babel --watch --hot",
+    "prod": "npm run webpack -- --env.mode production",
+    "prod:babel": "npm run prod -- --env.presets babel",
+    "prod:analyze": "npm run prod -- --env.presets analyze",
+    "prod:compress": "npm run prod -- --env.presets compress",
+    "prod:debug": "npm run debug -- --env.mode production",
+    "dev:debug": "npm run debug -- --env.mode development"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css,md}": [
@@ -49,16 +54,18 @@
     "react-testing-library": "^5.0.1",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-dev-server": "^3.1.8",
+    "webpack-merge": "^4.1.4"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "@storybook/react": "^3.4.10",
     "@storybook/addon-actions": "^3.4.10",
     "@storybook/addon-links": "^3.4.10",
     "@storybook/addons": "^3.4.10",
+    "@storybook/react": "^3.4.10",
     "axios": "^0.18.0",
     "babel-eslint": "^9.0.0",
+    "compression-webpack-plugin": "^2.0.0",
     "emotion": "^9.2.8",
     "prop-types": "^15.6.2",
     "react": "^16.5.0",
@@ -70,6 +77,7 @@
     "redux-devtools-extension": "^2.13.5",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
-    "regenerator-runtime": "^0.12.1"
+    "regenerator-runtime": "^0.12.1",
+    "webpack-bundle-analyzer": "^3.0.3"
   }
 }
